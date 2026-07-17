@@ -14,7 +14,7 @@ logoFile = "assets/template/icon.png"
 #displayURL = "..."
 #issueTrackerUrl = "..."
 
-[[mixings]]
+[[mixins]]
 config = "template.mixins.json"
 
 [[dependencies.${id}]]
