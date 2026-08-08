@@ -1,4 +1,4 @@
-package com.example;
+package dev.coder2195.save_my_cooldowns;
 
 import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
@@ -9,7 +9,7 @@ public class TemplateModCommon {
      * It is considered best practice to use your mod id as the logger's name.
      * That way, it's clear which mod wrote info, warnings, and errors.
      */
-    public static final Logger LOGGER = LoggerFactory.getLogger("template");
+    public static final Logger LOGGER = LoggerFactory.getLogger("save_my_cooldowns");
     public static final String VERSION = /*$ mod_version*/ "0.1.0";
     public static final String MINECRAFT = /*$ minecraft*/ "26.2";
 
