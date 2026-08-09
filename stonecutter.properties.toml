@@ -1,8 +1,10 @@
 # See https://stonecutter.kikugie.dev/wiki/config/properties#centralized-properties
 mod.id = "save_my_cooldowns"
-mod.name = "Template"
-mod.group = "com.example"
+mod.name = "Save My Cooldowns"
+mod.group = "dev.coder2195.save_my_cooldowns"
 mod.version = "0.1.0"
+publish.curseforge = "1631265"
+publish.modrinth = "dY5frha3"
 
 deps.fabric_loader = "0.19.3"
 loomx.loom_version = "1.17-SNAPSHOT"
@@ -37,7 +39,6 @@ deps.neo_loader = "21.11.45"
 
 ["latest"]
 mod.mc_releases = ["26.1", "26.1.1", "26.1.2", "26.2"]
-
 
 [fabric."latest"]
 mod.mc_compat = "[26.1, 26.3)"
