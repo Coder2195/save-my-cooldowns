@@ -39,6 +39,7 @@ deps.neo_loader = "21.11.45"
 
 ["latest"]
 mod.mc_releases = ["26.1", "26.1.1", "26.1.2", "26.2"]
+mod.readable_versions = "26.1 to 26.2"
 
 [fabric."latest"]
 mod.mc_compat = "[26.1, 26.3)"

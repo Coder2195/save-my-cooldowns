@@ -118,7 +118,7 @@ tasks {
 
 publishMods {
   file = tasks.jar.map { it.archiveFile.get() }
-  displayName = "${property("mod.name")} ${property("mod.version")}"
+  displayName = "${property("mod.name")} ${property("mod.version")} for ${property("mod.readable_versions")} on Fabric"
   setVersion(project.version)
   changelog = rootProject.file("CHANGELOG.md").readText()
   type = STABLE
@@ -144,7 +144,7 @@ publishMods {
     accessToken = env.fetch("CURSEFORGE_TOKEN", "")
     minecraftVersions.addAll(compatibleVersions)
     requires("fabric-api")
-
+    javaVersions.add(requiredJava)
     client = true
     server = true
 
