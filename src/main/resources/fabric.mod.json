@@ -9,22 +9,26 @@
   ],
   "contact": {
     "homepage": "https://stonecutter.kikugie.dev/",
-    "sources": "https://codeberg.org/stonecutter/template-fabric"
+    "sources": "https://codeberg.org/stonecutter/save_my_cooldowns-fabric"
   },
   "license": "CC0-1.0",
-  "icon": "assets/template/icon.png",
+  "icon": "assets/save_my_cooldowns/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.example.TemplateModFabric"
+      "dev.coder2195.save_my_cooldowns.SaveMyCooldownsFabric"
+    ],
+    "client": [
+      "dev.coder2195.save_my_cooldowns.SaveMyCooldownsFabricClient"
     ]
   },
   "mixins": [
-    "template.mixins.json"
+    "save_my_cooldowns.mixins.json"
   ],
-  "accessWidener": "template.ct",
+  "accessWidener": "save_my_cooldowns.ct",
   "depends": {
     "fabricloader": ">=0.17",
+    "fabric-api": "*",
     "minecraft": "${minecraft}"
   }
 }

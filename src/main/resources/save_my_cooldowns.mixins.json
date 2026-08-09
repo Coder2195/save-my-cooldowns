@@ -1,9 +1,9 @@
 {
   "required": true,
-  "package": "com.example.mixin",
+  "package": "dev.coder2195.save_my_cooldowns.mixin",
   "compatibilityLevel": "${java}",
   "mixins": [
-    "ExampleMixin"
+    "ServerPlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

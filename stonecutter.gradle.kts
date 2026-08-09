@@ -2,7 +2,7 @@ plugins {
     id("dev.kikugie.stonecutter")
 }
 
-stonecutter active "26.2.x-fabric"
+stonecutter active "latest-neoforge"
 
 // See https://stonecutter.kikugie.dev/wiki/config/params
 stonecutter parameters {
@@ -20,7 +20,7 @@ stonecutter parameters {
 
     swaps["mod_version"] = "\"${properties.get<String>("mod.version")}\";"
     swaps["minecraft"] = "\"${node.metadata.version}\";"
-    constants["release"] = properties.get<String>("mod.id") != "template"
+    constants["release"] = properties.get<String>("mod.id") != "save_my_cooldowns"
     dependencies["fapi"] = properties.getOrNull<String>("deps.fabric_api") ?: "0"
 
     replacements {

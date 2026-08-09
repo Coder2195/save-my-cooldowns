@@ -7,16 +7,18 @@ import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
-@Mod("save_my_cooldowns")
-public class SaveMyCooldownsNeoForge {
-  public SaveMyCooldownsNeoForge(IEventBus modEventBus, ModContainer modContainer) {
-    modEventBus.addListener(this::playerLoggedIn);
+
+@EventBusSubscriber(modid = SaveMyCooldowns.ID)
+@Mod(SaveMyCooldowns.ID)
+public class SaveMyCooldownsNeoforge {
+  public SaveMyCooldownsNeoforge(IEventBus modEventBus, ModContainer modContainer) {
   }
 
   // In some common event class
@@ -32,9 +34,13 @@ public class SaveMyCooldownsNeoForge {
     );
   }
 
-  private void playerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+
+  @SubscribeEvent
+  public static void playerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
     var player = event.getEntity();
 
+
+    SaveMyCooldowns.LOGGER.info("Player login");
     if (player instanceof ServerPlayer serverPlayer) {
       SaveMyCooldowns.LOGGER.info("Player tracking");
       PacketDistributor.sendToPlayer(serverPlayer, new ClientboundCooldownSyncPayload(serverPlayer.getCooldowns()));

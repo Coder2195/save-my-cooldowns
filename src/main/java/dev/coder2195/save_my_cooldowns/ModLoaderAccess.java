@@ -1,11 +1,11 @@
-package com.example;
+package dev.coder2195.save_my_cooldowns;
 
 // Similar to this you can implement loader-specific functionality
 // in a way that works on either mod loader.
 public sealed interface ModLoaderAccess {
     ModLoaderAccess INSTANCE =
-        /*? if fabric{*/new FabricLoaderAccess();
-        /*?} elif neoforge *///new NeoForgeLoaderAccess();
+        /*? if fabric{*//*new FabricLoaderAccess();
+        *//*?} elif neoforge */new NeoForgeLoaderAccess();
 
     boolean isClient();
     boolean isServer();
@@ -13,7 +13,7 @@ public sealed interface ModLoaderAccess {
     boolean isModLoaded(String id);
 
     //? if fabric {
-    final class FabricLoaderAccess implements ModLoaderAccess {
+    /*final class FabricLoaderAccess implements ModLoaderAccess {
         private net.fabricmc.loader.api.FabricLoader loader = net.fabricmc.loader.api.FabricLoader.getInstance();
 
         @Override
@@ -31,14 +31,14 @@ public sealed interface ModLoaderAccess {
             return loader.isModLoaded(id);
         }
     }
-    //?} elif neoforge {
-    /*final class NeoForgeLoaderAccess implements ModLoaderAccess {
+    *///?} elif neoforge {
+    final class NeoForgeLoaderAccess implements ModLoaderAccess {
         private net.neoforged.api.distmarker.Dist dist =
-            /^? if >=1.21.9 {^/net.neoforged.fml.loading.FMLEnvironment.getDist();
-            /^?} else^///net.neoforged.fml.loading.FMLEnvironment.dist;
+            /*? if >=1.21.9 {*/net.neoforged.fml.loading.FMLEnvironment.getDist();
+            /*?} else*///net.neoforged.fml.loading.FMLEnvironment.dist;
         private net.neoforged.fml.loading.LoadingModList mods =
-            /^? if >=1.21.9 {^/net.neoforged.fml.loading.FMLLoader.getCurrent().getLoadingModList();
-            /^?} else^///net.neoforged.fml.loading.FMLLoader.getLoadingModList();
+            /*? if >=1.21.9 {*/net.neoforged.fml.loading.FMLLoader.getCurrent().getLoadingModList();
+            /*?} else*///net.neoforged.fml.loading.FMLLoader.getLoadingModList();
 
         @Override
         public boolean isClient() {
@@ -55,5 +55,5 @@ public sealed interface ModLoaderAccess {
             return mods.getModFileById(id) != null;
         }
     }
-    *///?}
+    //?}
 }
